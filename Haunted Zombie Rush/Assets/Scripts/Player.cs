@@ -54,7 +54,9 @@ public class Player : MonoBehaviour {
 
     void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "obstacle") {
-            
+            rigidbody.AddForce(new Vector2(-50, 20), ForceMode.Impulse); // Applies the push back when the player hits an obstacle
+            rigidbody.detectCollisions = false; // turns off collisions after it has hit the obstacle, this way it wont collide anymore
+           audioSource.PlayOneShot(sfxDeath); 
         }
     }
 }

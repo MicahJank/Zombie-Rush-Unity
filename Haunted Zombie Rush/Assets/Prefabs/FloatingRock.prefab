@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -30907185354031546}
   m_Layer: 0
   m_Name: FloatingRock
-  m_TagString: Obstacle
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
