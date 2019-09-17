@@ -1,17 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
+
 
 public class Player : MonoBehaviour {
 
     [SerializeField] private float jumpforce = 100f;
+
     [SerializeField] private AudioClip sfxJump;
+    [SerializeField] private AudioClip sfxDeath;
 
     private Animator anim;
     private Rigidbody rigidbody;
     private AudioSource audioSource;
 
     private bool jump = false;
+
+    // Awake is called before Start
+    void Awake() {
+        // Assertions are helpful in that we can make sure all our fields like 'sfxJump' actually have a value before playing the game
+        Assert.IsNotNull(sfxJump, "sfxJump is Null - make sure it has a value in the unity inspector");
+        Assert.IsNotNull(sfxDeath, "sfxDeath is Null - make sure it has a value in the unity inspector");
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -38,6 +49,12 @@ public class Player : MonoBehaviour {
            jump = false; 
            rigidbody.velocity = new Vector2(0, 0);
            rigidbody.AddForce(new Vector2(0, jumpforce), ForceMode.Impulse);
+        }
+    }
+
+    void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag == "obstacle") {
+            
         }
     }
 }
