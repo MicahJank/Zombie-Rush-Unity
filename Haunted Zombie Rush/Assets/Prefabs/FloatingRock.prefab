@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9187843908376706959}
   - component: {fileID: 205689926254626233}
   - component: {fileID: 5901484139131140416}
+  - component: {fileID: 831744342673386212}
   m_Layer: 0
   m_Name: FloatingRock
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5321740191228054940}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.32, y: 9.48, z: 9.11}
   m_LocalScale: {x: 1.3951455, y: 1.3951455, z: 1.3951455}
   m_Children: []
@@ -78,3 +79,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &831744342673386212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321740191228054940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a164c890ef80f764c876eaf4a8617751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectSpeed: 4
+  resetPosition: -5
+  startPosition: 11
+  topPosition: {x: 0, y: 10, z: 0}
+  bottomPosition: {x: 0, y: -1.7, z: 0}
+  speed: 3

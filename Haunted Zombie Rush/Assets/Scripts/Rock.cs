@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : MonoBehaviour {
+public class Rock : Object {
 
     [SerializeField] Vector3 topPosition; //defined in unity editor
     [SerializeField] Vector3 bottomPosition; // defined in unity editor
@@ -12,6 +12,10 @@ public class Rock : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         StartCoroutine(Move(bottomPosition));
+    }
+
+    void Update() {
+        MoveObject();
     }
 
     IEnumerator Move(Vector3 target) {
