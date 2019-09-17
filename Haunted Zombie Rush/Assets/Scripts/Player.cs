@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
+
+    Animator anim;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if(Input.GetMouseButtonDown(0)) {
+            anim.Play("Jump");
+        }
     }
 }
