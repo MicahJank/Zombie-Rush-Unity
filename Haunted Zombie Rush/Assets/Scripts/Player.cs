@@ -5,9 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     [SerializeField] private float jumpforce = 100f;
+    [SerializeField] private AudioClip sfxJump;
 
     private Animator anim;
     private Rigidbody rigidbody;
+    private AudioSource audioSource;
 
     private bool jump = false;
 
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour {
     void Start() {
         anim = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class Player : MonoBehaviour {
         // the jump bool to true and turning on the gravity.
         if(Input.GetMouseButtonDown(0)) {
             anim.Play("Jump");
+            audioSource.PlayOneShot(sfxJump);
             rigidbody.useGravity = true;
             jump = true;
         }
