@@ -15,7 +15,9 @@ public class Rock : Object {
     }
 
     void Update() {
-        MoveObject();
+        if(GameManager.instance.PlayerActive) {
+            MoveObject();
+        }
     }
 
     IEnumerator Move(Vector3 target) {

@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 9187843908376706959, guid: 6b002a3fbe9895946aeac707d40de9b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.69
+      value: 16.47
       objectReference: {fileID: 0}
     - target: {fileID: 9187843908376706959, guid: 6b002a3fbe9895946aeac707d40de9b4,
         type: 3}
@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -465,6 +466,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe11aeca931d6f47adb55ba218e22ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1294819425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -480,7 +493,7 @@ PrefabInstance:
     - target: {fileID: 9187843908376706959, guid: 6b002a3fbe9895946aeac707d40de9b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.879999
+      value: 8.66
       objectReference: {fileID: 0}
     - target: {fileID: 9187843908376706959, guid: 6b002a3fbe9895946aeac707d40de9b4,
         type: 3}
@@ -933,7 +946,7 @@ PrefabInstance:
     - target: {fileID: 9187843908376706959, guid: 6b002a3fbe9895946aeac707d40de9b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.47
+      value: -2.23
       objectReference: {fileID: 0}
     - target: {fileID: 9187843908376706959, guid: 6b002a3fbe9895946aeac707d40de9b4,
         type: 3}

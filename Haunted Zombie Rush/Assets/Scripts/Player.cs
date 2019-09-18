@@ -33,6 +33,12 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if(!GameManager.instance.GameOver) {
+            CharacterMovement();
+        }
+    }
+
+    void CharacterMovement() {
         // checks to see if the left mouse button has been clicked, if it has then we can play the animation. Also we let the game know that the player has jumped by setting
         // the jump bool to true and turning on the gravity.
         if(Input.GetMouseButtonDown(0)) {
@@ -40,6 +46,9 @@ public class Player : MonoBehaviour {
             audioSource.PlayOneShot(sfxJump);
             rigidbody.useGravity = true;
             jump = true;
+            if(!GameManager.instance.PlayerActive) {
+                GameManager.instance.PlayerStartedGame();
+            }
         }
     }
 
@@ -57,6 +66,7 @@ public class Player : MonoBehaviour {
             rigidbody.AddForce(new Vector2(-50, 20), ForceMode.Impulse); // Applies the push back when the player hits an obstacle
             rigidbody.detectCollisions = false; // turns off collisions after it has hit the obstacle, this way it wont collide anymore
            audioSource.PlayOneShot(sfxDeath); 
+           GameManager.instance.PlayerCollided();
         }
     }
 }
