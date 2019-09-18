@@ -43,9 +43,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3398291541169085141}
   - component: {fileID: 4346176733280410216}
+  - component: {fileID: 305163321475591982}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +81,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a4fcaf1e5c10f499e941b3b066b53a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectSpeed: 4
+  objectSpeed: 2
+  resetPosition: -12
+  startPosition: 84
+--- !u!65 &305163321475591982
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462622133285153292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 33.41, y: 2.15, z: 4.84}
+  m_Center: {x: -6.8, y: 34.57, z: 3.14}
 --- !u!1 &3414480660795969259
 GameObject:
   m_ObjectHideFlags: 0
