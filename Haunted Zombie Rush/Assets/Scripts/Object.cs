@@ -22,7 +22,7 @@ public class Object : MonoBehaviour {
 
         // If the GameOver bool (found inside the GameManager class) is false ONLY THEN should the platform and objects move
         if(!GameManager.instance.GameOver) {
-            transform.Translate(Vector3.left * (objectSpeed * Time.deltaTime));
+            transform.position += (Vector3.left * (objectSpeed * Time.deltaTime));
 
             if(transform.localPosition.x <= resetPosition) {
                 Vector3 newPos = new Vector3(startPosition, transform.position.y, transform.position.z);

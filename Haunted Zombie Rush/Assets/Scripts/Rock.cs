@@ -8,6 +8,7 @@ public class Rock : Object {
     [SerializeField] Vector3 bottomPosition; // defined in unity editor
 
     [SerializeField] float speed;
+    [SerializeField] float rotationSpeed;
 
     // Start is called before the first frame update
     void Start() {
@@ -18,6 +19,8 @@ public class Rock : Object {
         if(GameManager.instance.PlayerActive) {
             MoveObject();
         }
+
+        Rotate();
     }
 
     IEnumerator Move(Vector3 target) {
@@ -34,5 +37,10 @@ public class Rock : Object {
 
         Vector3 newTarget = target.y == topPosition.y ? bottomPosition : topPosition;
         StartCoroutine(Move(newTarget));
+    }
+
+    // Rotates the Rock around its y axis
+    void Rotate() {
+        transform.Rotate(0, (rotationSpeed * Time.deltaTime), 0);
     }
 }

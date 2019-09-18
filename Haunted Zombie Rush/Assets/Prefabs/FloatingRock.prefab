@@ -99,6 +99,7 @@ MonoBehaviour:
   topPosition: {x: 0, y: 10, z: 0}
   bottomPosition: {x: 0, y: -1.7, z: 0}
   speed: 3
+  rotationSpeed: 15
 --- !u!65 &3740245688853905927
 BoxCollider:
   m_ObjectHideFlags: 0
