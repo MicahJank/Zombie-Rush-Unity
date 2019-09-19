@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GameOverText
+    uniqueID: 4233244985
+    locked: 0
