@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     private bool playerActive = false;
     private bool gameOver = false;
     private bool gameStart = false;
+    private bool gameRestart = false;
 
     public bool PlayerActive {
         get { return playerActive; }
@@ -22,6 +23,10 @@ public class GameManager : MonoBehaviour {
 
     public bool GameStart {
         get { return gameStart; }
+    }
+
+    public bool GameRestart {
+        get { return gameRestart; }
     }
 
 public static GameManager instance = null;
@@ -54,14 +59,22 @@ public static GameManager instance = null;
     public void PlayerCollided() {
         gameOver = true;
         gameOverMenu.SetActive(true);
+        playerActive = false;
     }
 
     public void PlayerStartedGame() {
         playerActive = true;
+        gameRestart = false;
     }
 
     public void EnterGame() {
         mainMenu.SetActive(false);
         gameStart = true;
+    }
+
+    public void RestartGame() {
+       gameOver = false;
+       gameRestart = true;
+       gameOverMenu.SetActive(false);
     }
 }

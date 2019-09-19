@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
     private Animator anim;
     private Rigidbody rigidbody;
     private AudioSource audioSource;
+    private Vector3 initialPosition; // for resetting after game reset
+    private Quaternion initialRotation; // since character can spin when hit rotation will need to be reset as well
 
     private bool jump = false;
 
@@ -29,12 +31,22 @@ public class Player : MonoBehaviour {
         anim = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
     }
 
     // Update is called once per frame
     void Update() {
         if(!GameManager.instance.GameOver && GameManager.instance.GameStart) {
             CharacterMovement();
+        }
+
+        // resets the positions and velocities of the game object when the game restarts
+        if(GameManager.instance.GameRestart) {
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
         }
     }
 
@@ -62,9 +74,9 @@ public class Player : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag == "obstacle") {
+        if(other.gameObject.tag == "obstacle" && GameManager.instance.PlayerActive) {
             rigidbody.AddForce(new Vector2(-50, 20), ForceMode.Impulse); // Applies the push back when the player hits an obstacle
-            rigidbody.detectCollisions = false; // turns off collisions after it has hit the obstacle, this way it wont collide anymore
+            // rigidbody.detectCollisions = false; // turns off collisions after it has hit the obstacle, this way it wont collide anymore
            audioSource.PlayOneShot(sfxDeath); 
            GameManager.instance.PlayerCollided();
         }
