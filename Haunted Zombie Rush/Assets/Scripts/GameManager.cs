@@ -6,6 +6,7 @@ using UnityEngine.Assertions;
 public class GameManager : MonoBehaviour {
 
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject gameOverMenu;
 
     private bool playerActive = false;
     private bool gameOver = false;
@@ -28,6 +29,7 @@ public static GameManager instance = null;
     void Awake() {
         //Assertions
         Assert.IsNotNull(mainMenu, "mainMenu is null, check that it has been assigned a GameObject in the unity inspector.");
+        Assert.IsNotNull(gameOverMenu, "gameOverMenu is null, check that it has been assigned a GameObject in the unity inspector.");
 
         if(instance == null) {
             instance = this;
@@ -51,6 +53,7 @@ public static GameManager instance = null;
 
     public void PlayerCollided() {
         gameOver = true;
+        gameOverMenu.SetActive(true);
     }
 
     public void PlayerStartedGame() {
