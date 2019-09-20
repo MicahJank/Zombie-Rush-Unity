@@ -7,8 +7,6 @@ public class Object : MonoBehaviour {
     [SerializeField] private float objectSpeed = 4;
     [SerializeField] private float resetPosition = -12;
     [SerializeField] private float startPosition = 84;
-    
-    private bool reset = false;
 
     // initialPosition is used for when the game restarts all Objects can be reset to their starting positions again
     private Vector3 initialPosition;
@@ -16,21 +14,20 @@ public class Object : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         initialPosition = transform.position;
-        Debug.Log(initialPosition);
 
     }
 
     // Update is called once per frame
     void Update() {
+        if(GameManager.instance.GameRestart) {
+            Debug.Log("Reset is being called");
+            ChangePosition(transform, initialPosition);
+        } else {
         MoveObject();
+        }
     }
 
     protected virtual void MoveObject() {
-
-        if(GameManager.instance.GameRestart) {
-            ResetPosition();
-        }
-
 
         // If the GameOver bool (found inside the GameManager class) is false ONLY THEN should the platform and objects move
         if(!GameManager.instance.GameOver) {
@@ -47,9 +44,9 @@ public class Object : MonoBehaviour {
        
     }
 
-    // reset the position of the Object if the GameManagers GameRestart bool is true
-    void ResetPosition() {
-        transform.position = initialPosition;
+    // Changes the position of the Object when called, requires a position to move to and the current objects transform to be passed in
+    protected virtual void ChangePosition(Transform objTransform, Vector3 positionToMove) {
+        objTransform.position = positionToMove;
        
     }
 }
