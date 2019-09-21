@@ -19,7 +19,7 @@ public class Object : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(GameManager.instance.GameOver || GameManager.instance.GameStart) {
+        if(GameManager.instance.GameStart) {
             MoveObject();
         } else if(GameManager.instance.GameRestart) {
             ChangePosition(transform, initialPosition);
@@ -36,10 +36,7 @@ public class Object : MonoBehaviour {
                 Vector3 newPos = new Vector3(startPosition, transform.position.y, transform.position.z);
                 transform.position = newPos;
             }
-        }  
-        
-        
-         
+        }     
        
     }
 
@@ -47,5 +44,10 @@ public class Object : MonoBehaviour {
     protected virtual void ChangePosition(Transform objTransform, Vector3 positionToMove) {
         objTransform.position = positionToMove;
        
+    }
+
+    // Will rotate the object around its y axis, must be provided a Transform of the object it is rotating as well as a float for the speed of the rotation
+     protected virtual void Rotate(Transform transform, float rotationSpeed ) {
+        transform.Rotate(0, (rotationSpeed * Time.deltaTime), 0, Space.World);
     }
 }

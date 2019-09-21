@@ -27,7 +27,7 @@ public class Rock : Object {
             ChangePosition(transform, initialRockPosition);
         }
 
-        Rotate();
+        Rotate(transform, rotationSpeed);
     }
 
     IEnumerator Move(Vector3 target) {
@@ -45,9 +45,5 @@ public class Rock : Object {
         Vector3 newTarget = target.y == topPosition.y ? bottomPosition : topPosition;
         StartCoroutine(Move(newTarget));
     }
-
-    // Rotates the Rock around its y axis
-    void Rotate() {
-        transform.Rotate(0, (rotationSpeed * Time.deltaTime), 0);
-    }
+   
 }
