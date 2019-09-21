@@ -19,11 +19,10 @@ public class Object : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(GameManager.instance.GameRestart) {
-            Debug.Log("Reset is being called");
+        if(GameManager.instance.GameOver || GameManager.instance.GameStart) {
+            MoveObject();
+        } else if(GameManager.instance.GameRestart) {
             ChangePosition(transform, initialPosition);
-        } else {
-        MoveObject();
         }
     }
 

@@ -10,11 +10,11 @@ public class Rock : Object {
     [SerializeField] float speed;
     [SerializeField] float rotationSpeed;
 
-    Vector3 initialPosition;
+    private Vector3 initialRockPosition;
 
     // Start is called before the first frame update
     void Start() {
-        initialPosition = transform.position;
+        initialRockPosition = transform.position;
         StartCoroutine(Move(bottomPosition));
     }
 
@@ -24,7 +24,7 @@ public class Rock : Object {
         }
 
         if(GameManager.instance.GameRestart) {
-            ChangePosition(transform, initialPosition);
+            ChangePosition(transform, initialRockPosition);
         }
 
         Rotate();
