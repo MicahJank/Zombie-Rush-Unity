@@ -50,4 +50,9 @@ public class Object : MonoBehaviour {
      protected virtual void Rotate(Transform transform, float rotationSpeed ) {
         transform.Rotate(0, (rotationSpeed * Time.deltaTime), 0, Space.World);
     }
+
+    // Will destory the GameObject that is passed in after the given amount of time (in seconds) has passed
+    protected virtual void DestroyObject(GameObject obj, float time) {
+        Destroy(obj, time);
+    }
 }
