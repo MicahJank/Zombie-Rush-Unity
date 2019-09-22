@@ -12,6 +12,8 @@ public class Coin : Object {
 
     [SerializeField] private AudioClip sfxCoin;
 
+    private Vector3 initialCoinPosition;
+
     void Awake() {
         Assert.IsNotNull(sfxCoin, "sfxCoin is null, check that the sound effect for the coin has been added in the unity inspector");
     }
@@ -20,12 +22,17 @@ public class Coin : Object {
     void Start() {
        audioSource = GetComponent<AudioSource>();
        coinRenderer = GetComponent<MeshRenderer>();
+       initialCoinPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update() {
         if(GameManager.instance.PlayerActive) {
             MoveObject();
+        }
+
+        if(GameManager.instance.GameRestart) {
+            Destroy(gameObject);
         }
 
         Rotate(transform, rotationSpeed);
