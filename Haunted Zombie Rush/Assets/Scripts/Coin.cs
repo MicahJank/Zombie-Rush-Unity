@@ -9,6 +9,7 @@ public class Coin : Object {
 
     private AudioSource audioSource;
     private MeshRenderer coinRenderer;
+    private CapsuleCollider coinCollider;
 
     [SerializeField] private AudioClip sfxCoin;
 
@@ -22,6 +23,7 @@ public class Coin : Object {
     void Start() {
        audioSource = GetComponent<AudioSource>();
        coinRenderer = GetComponent<MeshRenderer>();
+       coinCollider = GetComponent<CapsuleCollider>();
        initialCoinPosition = transform.position;
     }
 
@@ -40,6 +42,8 @@ public class Coin : Object {
 
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player") {
+            coinCollider.enabled = false;
+            ScoreManager.instance.updateScore();
             audioSource.PlayOneShot(sfxCoin);
             coinRenderer.enabled = false;
             DestroyObject(gameObject, 1f);
