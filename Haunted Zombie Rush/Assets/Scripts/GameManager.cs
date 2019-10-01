@@ -73,4 +73,11 @@ public static GameManager instance = null;
        gameOver = false;
        gameRestart = true;
     }
+
+    public void MainMenu() {
+        gameRestart = true;
+        gameOver = false;
+        mainMenu.SetActive(true);
+        gameStart = false;
+    }
 }
